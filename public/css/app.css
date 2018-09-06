@@ -1765,8 +1765,8 @@ a.has-text-danger:focus {
 .box {
   background-color: white;
   border-radius: 5px;
-  -webkit-box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
-          box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 120px;
+          box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 120px;
   color: #4a4a4a;
   display: block;
   padding: 1.25rem;
@@ -20001,10 +20001,14 @@ input[type=range].slider.is-danger .has-output-tooltip + output {
 
 .title {
   font-family: "Bitter", serif;
-  margin: 64px 0 16px 0;
+  margin: 32px 0 16px 0;
 }
 
 .subtitle {
   font-size: 0.85rem !important;
+}
+
+.content {
+  margin-bottom: 64px !important;
 }
 

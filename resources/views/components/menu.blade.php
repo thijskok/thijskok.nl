@@ -22,6 +22,11 @@
                 <i class="fab fa-twitter"></i>
             </span>
         </a>
+        <a href="/feed" class="navbar-item">
+            <span class="icon">
+                <i class="fas fa-rss"></i>
+            </span>
+        </a>
 
         @if (Auth::guest())
             <a class="navbar-item " href="{{ route('login') }}">
