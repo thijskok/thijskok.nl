@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 
 class PostsController extends Controller
 {
+    /**
+     * PostsController constructor.
+     */
     public function __construct()
     {
         $this->authorizeResource(Post::class);
@@ -59,7 +62,7 @@ class PostsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param $slug
+     * @param \App\Post $post
      *
      * @return \Illuminate\Http\Response
      */
@@ -71,7 +74,8 @@ class PostsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param \App\Post $post
+     *
      * @return \Illuminate\Http\Response
      */
     public function edit(Post $post)
@@ -82,8 +86,9 @@ class PostsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param \App\Post $post
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Post $post)
@@ -100,10 +105,11 @@ class PostsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param \App\Post $post
+     *
+     * @return void
      */
-    public function destroy(Post $id)
+    public function destroy(Post $post)
     {
         //
     }
