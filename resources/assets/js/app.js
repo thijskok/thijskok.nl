@@ -8,6 +8,7 @@
 require('./bootstrap');
 
 require('./trix');
+require('./highlight');
 
 require('./bulma');
 require('./bulma-extensions');
