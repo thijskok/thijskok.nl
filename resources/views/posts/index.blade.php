@@ -22,6 +22,7 @@
                 <h3 class="subtitle has-text-grey-light">
                     <span class="icon"><i class="far fa-clock"></i></span>
                     {{ $post->published_at->toFormattedDateString() }} |
+                    <span class="icon"><i class="fas fa-book-reader"></i></span>
                     {{ $post->minutesToRead }} min read |
                     @component('components.tags', ['tags' => $post->tags]) @endcomponent
                 </h3>
