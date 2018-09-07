@@ -108,9 +108,12 @@ class PostsController extends Controller
      * @param \App\Post $post
      *
      * @return void
+     * @throws \Exception
      */
     public function destroy(Post $post)
     {
-        //
+        $post->delete();
+
+        return redirect()->home();
     }
 }

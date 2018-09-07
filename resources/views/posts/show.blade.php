@@ -4,7 +4,14 @@
 
     @auth
         @component('components.toolbar')
-            <a href="{{ route('posts.edit', $post) }}" class="button is-primary">Edit</a>
+            <a href="{{ route('posts.edit', $post) }}" class="button is-primary">Edit...</a>
+
+            <form method="post" action="{{ route('posts.destroy', $post) }}">
+                @csrf
+                <input name="_method" type="hidden" value="DELETE">
+                <button type="submit" class="button is-danger is-outlined">Delete</button>
+            </form>
+
         @endcomponent
     @endauth
 
