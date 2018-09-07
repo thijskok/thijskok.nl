@@ -8,20 +8,18 @@
         @endcomponent
     @endauth
 
-    <section class="section">
-        <div class="box">
+    <div class="box m-t-50">
 
-            <h1 class="title is-3 is-size-4-mobile">{{ $post->title }}</h1>
-            <h2 class="subtitle has-text-grey-light">
-                <span class="icon"><i class="far fa-clock"></i></span>
-                {{ $post->published_at->toFormattedDateString() }} |
-                <span class="icon"><i class="fas fa-book-reader"></i></span>
-                {{ $post->minutesToRead }} min read |
-                @component('components.tags', ['tags' => $post->tags]) @endcomponent
-            </h2>
+        <h1 class="title is-3 is-size-4-mobile">{{ $post->title }}</h1>
+        <h2 class="subtitle has-text-grey-light">
+            <span class="icon"><i class="far fa-clock"></i></span>
+            {{ $post->published_at->toFormattedDateString() }} |
+            <span class="icon"><i class="fas fa-book-reader"></i></span>
+            {{ $post->minutesToRead }} min read |
+            @component('components.tags', ['tags' => $post->tags]) @endcomponent
+        </h2>
 
-            <div class="content">{!! $post->text !!}</div>
-        </div>
-    </section>
+        <div class="content">{!! $post->text !!}</div>
+    </div>
 
 @endsection
