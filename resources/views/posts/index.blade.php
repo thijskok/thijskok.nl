@@ -17,7 +17,7 @@
 
             @forelse($posts as $post)
                 <a href="{{ action('PostsController@show', $post->slug) }}">
-                    <h2 class="title is-3">{{ $post->title }}</h2>
+                    <h2 class="title is-3 is-size-4-mobile">{{ $post->title }}</h2>
                 </a>
                 <h3 class="subtitle has-text-grey-light">
                     <span class="icon"><i class="far fa-clock"></i></span>
