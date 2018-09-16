@@ -12,12 +12,18 @@
     <div class="box m-t-50">
 
         @isset($tag)
-            <h2 class="title is-4">Showing posts for "{{ $tag }}"</h2>
+            <h2 class="title is-4">
+                <span class="has-text-grey-light">Showing posts for </span>{{ $tag }}
+            </h2>
         @endisset
 
         @forelse($posts as $post)
+
+            <!-- Title -->
             <a href="{{ action('PostsController@show', $post->slug) }}">
-                <h2 class="title is-4">{{ $post->title }}</h2>
+                <h2 class="title is-4 @if(!$post->isPublished) has-text-grey-light @endif">
+                    {{ $post->title }}
+                </h2>
             </a>
             <h3 class="subtitle has-text-grey-light">
                 <span class="icon"><i class="far fa-clock"></i></span>
@@ -26,7 +32,11 @@
                 {{ $post->minutesToRead }} min read |
                 @component('components.tags', ['tags' => $post->tags]) @endcomponent
             </h3>
-            <div class="content m-b-50">{!! $post->summary !!}</div>
+
+            <!-- Text -->
+            <div class="content m-b-50 @if(!$post->isPublished) has-text-grey-light @endif">
+                {!! $post->summary !!}
+            </div>
         @empty
             @component('components.empty')
                 <h1 class="title">Nothing here.</h1>
