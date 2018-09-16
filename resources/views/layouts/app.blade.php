@@ -31,6 +31,7 @@
 </div>
 
 <!-- Scripts -->
+@stack('scripts')
 <script src="{{ asset('js/app.js') }}"></script>
 @include('scripts.analytics')
 

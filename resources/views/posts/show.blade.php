@@ -17,6 +17,7 @@
 
     <div class="box m-t-50">
 
+        <!-- Title -->
         <h1 class="title is-3 is-size-4-mobile">{{ $post->title }}</h1>
         <h2 class="subtitle has-text-grey-light">
             <span class="icon"><i class="far fa-clock"></i></span>
@@ -26,7 +27,18 @@
             @component('components.tags', ['tags' => $post->tags]) @endcomponent
         </h2>
 
+        <!-- Body -->
         <div class="content">{!! $post->text !!}</div>
+
+        <!-- Share -->
+        <nav class="level">
+            <div class="level-left">
+                <div class="level-item">
+                    @component('components.twitter', ['url' => route('posts.show', $post)])
+                    @endcomponent
+                </div>
+            </div>
+        </nav>
     </div>
 
 @endsection
