@@ -15,6 +15,7 @@ down
 pull
 install
 webpack
+backup
 migrate
 up
 @endmacro
@@ -50,6 +51,14 @@ cp {{ $dir }}/.env.production {{ $dir }}/.env
 @task('down')
 if [ -f {{ $artisan }} ]; then
 php {{ $artisan }} down
+else
+echo "Artisan file not found!"
+fi
+@endtask
+
+@task('backup')
+if [ -f {{ $artisan }} ]; then
+php {{ $artisan }} snapshot:create
 else
 echo "Artisan file not found!"
 fi

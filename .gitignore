@@ -3,6 +3,7 @@
 /public/storage
 /public/css
 /public/js
+/database/snapshots
 /storage/*.key
 /vendor
 /.idea
