@@ -28,6 +28,6 @@
     <label class="label">Text</label>
     <div class="control">
         <input id="text" type="hidden" name="text" value="{{ $post->text }}">
-        <trix-editor input="text"></trix-editor>
+        <trix-editor input="text" class="trix-content"></trix-editor>
     </div>
 </div>
