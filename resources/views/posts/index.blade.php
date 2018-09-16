@@ -4,7 +4,7 @@
 
     @auth
         @component('components.toolbar')
-            <a href="{{ route('posts.create') }}" class="button is-primary">Create...</a>
+            <a href="{{ route('posts.create') }}" class="button is-primary">Create post...</a>
         @endcomponent
     @endauth
 
@@ -16,7 +16,7 @@
 
         @forelse($posts as $post)
             <a href="{{ action('PostsController@show', $post->slug) }}">
-                <h2 class="title is-3 is-size-4-mobile">{{ $post->title }}</h2>
+                <h2 class="title is-4">{{ $post->title }}</h2>
             </a>
             <h3 class="subtitle has-text-grey-light">
                 <span class="icon"><i class="far fa-clock"></i></span>

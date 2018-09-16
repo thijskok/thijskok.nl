@@ -848,7 +848,7 @@ button,
 input,
 select,
 textarea {
-  font-family: "Bitter", serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 code,
@@ -20000,7 +20000,7 @@ input[type=range].slider.is-danger .has-output-tooltip + output {
 }
 
 .title {
-  font-family: "Bitter", serif;
+  font-family: "Open Sans", sans-serif;
   margin: 32px 0 16px 0;
 }
 
