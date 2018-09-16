@@ -1,7 +1,9 @@
 <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
         <a href="{{ route('home') }}" class="navbar-item">
-            <p>{{ config('app.name') }}</p>
+            <h1>
+                <span class="has-text-weight-bold">Thijs Kok</span>
+                <span class="has-text-grey-light"> / Developer blog</span></h1>
         </a>
 
         <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
@@ -13,6 +15,15 @@
 
     <div class="navbar-menu" id="navMenu">
         <div class="navbar-end">
+
+            @inject('pages', 'App\Services\PageService')
+            @foreach($pages->all() as $page)
+                <a href="{{ route('page', $page) }}"
+                   class="navbar-item @if (route('page', $page) === url()->current()) is-active @endif">
+                    {{ $page->title }}
+                </a>
+            @endforeach
+
             <a href="https://github.com/thijskok" class="navbar-item">
                 <span class="icon">
                     <i class="fab fa-github"></i>

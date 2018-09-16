@@ -13,7 +13,10 @@
 
 Auth::routes();
 
-Route::get('/', 'PostsController@index')->name('home');
+Route::get('/', 'PagesController@index')->name('home');
+Route::get('/{page}', 'PagesController@show')->name('page');
+
+Route::resource('pages', 'PagesController');
 
 Route::resource('posts', 'PostsController', ['except' => ['index']]);
 Route::resource('tag.posts', 'TagPostsController', ['only' => ['index']]);

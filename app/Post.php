@@ -5,15 +5,15 @@ namespace App;
 use Spatie\Tags\HasTags;
 use Spatie\Feed\Feedable;
 use Spatie\Feed\FeedItem;
+use App\Traits\Publishable;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
 
 class Post extends Model implements Feedable
 {
-    use HasSlug, HasTags;
+    use HasSlug, HasTags, Publishable;
 
     /**
      * The attributes that are mass assignable.
@@ -35,22 +35,6 @@ class Post extends Model implements Feedable
      * @var array
      */
     protected $with = ['author'];
-
-    /**
-     * The "booting" method of the model.
-     *
-     * @return void
-     */
-    protected static function boot()
-    {
-        parent::boot();
-
-        static::addGlobalScope('published', function (Builder $builder) {
-            if (auth()->guest()) {
-                $builder->where('published_at', '<=', now());
-            }
-        });
-    }
 
     /**
      * A post belongs to an author.
@@ -119,18 +103,8 @@ class Post extends Model implements Feedable
         return ceil($wordCount / $wordsPerMinute);
     }
 
-    public function getIsPublishedAttribute()
-    {
-        return $this->published_at->isPast();
-    }
-
     public function getSummaryAttribute()
     {
         return str_limit(strip_tags($this->text), 250);
-    }
-
-    public function scopeOrderByPublicationDate(Builder $query)
-    {
-        return $query->orderBy('published_at', 'desc');
     }
 }

@@ -28,6 +28,15 @@ class User extends Authenticatable
     ];
 
     /**
+     * A user has many pages.
+     *
+     */
+    public function pages()
+    {
+        return $this->hasMany(Page::class);
+    }
+
+    /**
      * A user has many posts.
      *
      */

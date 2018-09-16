@@ -10,7 +10,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Title -->
-    <title>{{ config('app.name', env('APP_NAME')) }}</title>
+    <title>@hasSection('title') @yield('title') - @endif {{ config('app.name', env('APP_NAME')) }}</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico">

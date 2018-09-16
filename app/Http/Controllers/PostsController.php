@@ -16,20 +16,6 @@ class PostsController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        $posts = Post::query()
-            ->orderByPublicationDate()
-            ->paginate();
-
-        return view('posts.index', compact('posts'));
-    }
-
-    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
@@ -107,8 +93,8 @@ class PostsController extends Controller
      *
      * @param \App\Post $post
      *
-     * @return void
      * @throws \Exception
+     * @return \Illuminate\Http\Response
      */
     public function destroy(Post $post)
     {

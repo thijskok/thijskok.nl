@@ -5,6 +5,7 @@
     @auth
         @component('components.toolbar')
             <a href="{{ route('posts.create') }}" class="button is-primary">Create post...</a>
+            <a href="{{ route('pages.create') }}" class="button is-primary">Create page...</a>
         @endcomponent
     @endauth
 
