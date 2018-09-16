@@ -22,7 +22,7 @@
     <div class="box m-t-50">
 
         <!-- Title -->
-        <h1 class="title is-3 is-size-4-mobile">{{ $post->title }}</h1>
+        <h1 class="title is-spaced is-3 is-size-4-mobile">{{ $post->title }}</h1>
         <h2 class="subtitle has-text-grey-light">
             <span class="icon"><i class="far fa-clock"></i></span>
             {{ $post->published_at->toFormattedDateString() }} |

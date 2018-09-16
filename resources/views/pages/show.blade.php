@@ -22,7 +22,7 @@
     <div class="box m-t-50">
 
         <!-- Title -->
-        <h1 class="title is-3 is-size-4-mobile">{{ $page->title }}</h1>
+        <h1 class="title is-spaced is-3 is-size-4-mobile">{{ $page->title }}</h1>
 
         <!-- Body -->
         <div class="content">{!! $page->text !!}</div>

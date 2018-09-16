@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Bitter|Open+Sans);@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Lora|Open+Sans);@charset "UTF-8";
 /*
 Trix 0.12.0
 Copyright © 2018 Basecamp, LLC
@@ -20006,6 +20006,11 @@ input[type=range].slider.is-danger .has-output-tooltip + output {
 
 .subtitle {
   font-size: 0.85rem !important;
+}
+
+.content {
+  font-family: "Lora", serif;
+  font-weight: 100;
 }
 
 .m-t-5 {
