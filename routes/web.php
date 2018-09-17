@@ -13,6 +13,8 @@
 
 Auth::routes();
 
+Route::feeds();
+
 Route::get('/', 'PagesController@index')->name('home');
 Route::get('/{page}', 'PagesController@show')->name('page');
 
@@ -22,5 +24,3 @@ Route::resource('posts', 'PostsController', ['except' => ['index']]);
 Route::resource('tag.posts', 'TagPostsController', ['only' => ['index']]);
 
 Route::post('upload', 'AttachmentsController@upload')->name('upload');
-
-Route::feeds();
