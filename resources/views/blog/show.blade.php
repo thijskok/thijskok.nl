@@ -44,17 +44,10 @@
 
         <div class="row justify-content-md-center">
             <div class="col col-lg-8">
-                <h1 class="text-dark font-serif pt-5 mb-4 @unless($data['post']->summary) mb-4 @endif">{{ $data['post']->title }}</h1>
+                <h2 class="text-dark font-serif pt-5 mb-4 @unless($data['post']->summary) mb-4 @endif">{{ $data['post']->title }}</h2>
 
-                <div class="media py-1">
-                    <img src="{{ sprintf('%s%s%s', 'https://secure.gravatar.com/avatar/', md5(strtolower(trim($data['author']->email))), '?s=200') }}"
-                         class="mr-3 rounded-circle shadow-sm"
-                         style="width: 50px"
-                         alt="{{ $data['author']->name }}">
-                    <div class="media-body">
-                        <p class="mt-0 mb-1 font-weight-bold">{{ $data['author']->name }}</p>
-                        <span class="text-muted">{{ \Carbon\Carbon::parse($data['post']->published_at)->format('M d, Y') }} — {{ $data['post']->read_time }}</span>
-                    </div>
+                <div class="py-1">
+                    <span class="text-muted">{{ \Carbon\Carbon::parse($data['post']->published_at)->format('M d, Y') }} — {{ $data['post']->read_time }}</span>
                 </div>
 
                 @isset($data['post']->featured_image)
@@ -102,18 +95,6 @@
                         <a href="{{ route('blog.post', $data['next']->slug) }}" class="text-decoration-none @isset($data['next']->featured_image) text-light @else text-dark @endisset">{{ $data['next']->title }}</a>
                     </h2>
                     <p class="text-lg font-serif @isset($data['next']->featured_image) text-white-50 @else text-muted @endisset">{{ Illuminate\Support\Str::limit(strip_tags($data['next']->summary), 140) }}</p>
-                </div>
-            @endisset
-            @isset($data['random'])
-                <div class="col-lg bg-light text-center px-lg-5 py-5"
-                     @isset($data['random']->featured_image) style="background: linear-gradient(rgba(0, 0, 0, 0.8),rgba(0, 0, 0, 0.8)),url({{ $data['random']->featured_image }}); background-size: cover" @endisset>
-                    <a href="{{ route('blog.post', $data['random']->slug) }}" class="btn btn-sm text-decoration-none @isset($data['random']->featured_image) btn-outline-light @else btn-outline-secondary @endisset text-uppercase font-weight-bold mt-3">
-                        {{ __('canvas::blog.buttons.enjoy') }}
-                    </a>
-                    <h2 class="font-weight-bold font-serif my-3 @isset($data['random']->featured_image) text-white @endisset">
-                        <a href="{{ route('blog.post', $data['random']->slug) }}" class="text-decoration-none @isset($data['random']->featured_image) text-white @else text-dark @endisset">{{ $data['random']->title }}</a>
-                    </h2>
-                    <p class="font-serif body @isset($data['random']->featured_image) text-white-50 @else text-muted @endisset">{{ Illuminate\Support\Str::limit(strip_tags($data['random']->summary), 140) }}</p>
                 </div>
             @endisset
         </div>
