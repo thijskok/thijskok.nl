@@ -2,8 +2,9 @@
 
 namespace App;
 
-use Illuminate\Notifications\Notifiable;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
@@ -28,20 +29,11 @@ class User extends Authenticatable
     ];
 
     /**
-     * A user has many pages.
+     * The attributes that should be cast to native types.
      *
+     * @var array
      */
-    public function pages()
-    {
-        return $this->hasMany(Page::class);
-    }
-
-    /**
-     * A user has many posts.
-     *
-     */
-    public function posts()
-    {
-        return $this->hasMany(Post::class);
-    }
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+    ];
 }

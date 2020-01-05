@@ -11,16 +11,10 @@
 |
 */
 
-Auth::routes();
+Auth::routes(['register' => false]);
 
-Route::feeds();
+Route::get('/', 'BlogController@getPosts')->name('blog.index');
+Route::middleware('Canvas\Http\Middleware\ViewThrottle')->get('{slug}', 'BlogController@findPostBySlug')->name('blog.post');
+Route::get('tag/{slug}', 'BlogController@getPostsByTag')->name('blog.tag');
+Route::get('topic/{slug}', 'BlogController@getPostsByTopic')->name('blog.topic');
 
-Route::get('/', 'PagesController@index')->name('home');
-Route::get('/{page}', 'PagesController@show')->name('page');
-
-Route::resource('pages', 'PagesController');
-
-Route::resource('posts', 'PostsController', ['except' => ['index']]);
-Route::resource('tag.posts', 'TagPostsController', ['only' => ['index']]);
-
-Route::post('upload', 'AttachmentsController@upload')->name('upload');
