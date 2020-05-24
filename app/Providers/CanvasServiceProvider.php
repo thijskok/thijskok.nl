@@ -33,7 +33,7 @@ class CanvasServiceProvider extends ServiceProvider
                 ->timezone(config('app.timezone'))
                 ->at('08:00')
                 ->when(function () {
-                    return config('canvas.digest.enabled');
+                    return config('canvas.mail.enabled');
                 });
         });
     }

@@ -46,6 +46,8 @@ return [
 
     'storage_path' => env('CANVAS_STORAGE_PATH', 'public/canvas'),
 
+    'upload_filesize' => env('CANVAS_UPLOAD_FILESIZE', 3145728),
+
     /*
     |--------------------------------------------------------------------------
     | Unsplash Integration
@@ -63,17 +65,18 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Weekly Digest
+    | E-Mail Notifications
     |--------------------------------------------------------------------------
     |
-    | This option enables Canvas to send e-mail notifications via the default
-    | mail driver on a weekly basis. All users that have published content
-    | will receive a total view count summary of the last seven days.
+    | This option controls e-mail notifications that will be sent via the
+    | default application mail driver. A default option is provided to
+    | support the notification system as an opt-in feature.
+    |
     |
     */
 
-    'digest' => [
-        'enabled' => env('CANVAS_DIGEST_ENABLED', false),
+    'mail' => [
+        'enabled' => env('CANVAS_MAIL_ENABLED', false),
     ],
 
 ];

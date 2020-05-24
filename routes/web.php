@@ -14,7 +14,7 @@
 Auth::routes(['register' => false]);
 
 Route::get('/', 'BlogController@getPosts')->name('blog.index');
-Route::middleware('Canvas\Http\Middleware\ViewThrottle')->get('{slug}', 'BlogController@findPostBySlug')->name('blog.post');
+Route::middleware('Canvas\Http\Middleware\Session')->get('{slug}', 'BlogController@findPostBySlug')->name('blog.post');
 Route::get('tag/{slug}', 'BlogController@getPostsByTag')->name('blog.tag');
 Route::get('topic/{slug}', 'BlogController@getPostsByTopic')->name('blog.topic');
 
