@@ -1,6 +1,6 @@
 @extends('blog.layouts.app')
 
-@section('title', sprintf('%s — %s', config('app.name'), __('canvas::blog.title')))
+@section('title', sprintf('%s — %s', config('app.name'), __('Blog')))
 
 @section('content')
     <div class="container">
@@ -24,8 +24,8 @@
 
                     {{ $data['posts']->links() }}
                 @else
-                    <p class="mt-4">{{ __('canvas::blog.empty.description') }}
-                        <a href="{{ url(sprintf('%s/posts/create', config('canvas.path'))) }}">{{ __('canvas::blog.empty.action') }}</a>.
+                    <p class="mt-4">{{ __('No posts were found, start by') }}
+                        <a href="{{ url(sprintf('%s/posts/create', config('canvas.path'))) }}">{{ __('adding a new post') }}</a>.
                     </p>
                 @endif
             </div>

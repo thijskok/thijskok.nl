@@ -11,7 +11,7 @@
             </p>
         </div>
         <div class="col-4 text-center">
-            <a class="text-dark font-weight-bolder text-decoration-none font-serif" href="{{ route('blog.index') }}">{{ config('app.name', __('canvas::blog.title')) }}</a>
+            <a class="text-dark font-weight-bolder text-decoration-none font-serif" href="{{ route('blog.index') }}">{{ config('app.name', __('Blog')) }}</a>
         </div>
 
         @auth()
@@ -30,14 +30,14 @@
                             {{ auth()->user()->email }}
                         </h6>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="{{ url(sprintf('%s/posts', config('canvas.path'))) }}">{{ __('canvas::blog.nav.user.posts') }}</a>
-                        <a class="dropdown-item" href="{{ url(sprintf('%s/tags', config('canvas.path'))) }}">{{ __('canvas::blog.nav.user.tags') }}</a>
-                        <a class="dropdown-item" href="{{ url(sprintf('%s/topics', config('canvas.path'))) }}">{{ __('canvas::blog.nav.user.topics') }}</a>
-                        <a class="dropdown-item" href="{{ url(sprintf('%s/stats', config('canvas.path'))) }}">{{ __('canvas::blog.nav.user.stats') }}</a>
+                        <a class="dropdown-item" href="{{ url(sprintf('%s/posts', config('canvas.path'))) }}">{{ __('Posts') }}</a>
+                        <a class="dropdown-item" href="{{ url(sprintf('%s/tags', config('canvas.path'))) }}">{{ __('Tags') }}</a>
+                        <a class="dropdown-item" href="{{ url(sprintf('%s/topics', config('canvas.path'))) }}">{{ __('Topics') }}</a>
+                        <a class="dropdown-item" href="{{ url(sprintf('%s/stats', config('canvas.path'))) }}">{{ __('Stats') }}</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="{{ route('logout') }}"
                            onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                            {{ __('canvas::blog.nav.user.logout') }}
+                            {{ __('Logout') }}
                         </a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf
@@ -49,7 +49,7 @@
 
         @guest()
             <div class="col-4 d-flex justify-content-end align-items-center">
-                <a class="text-muted text-decoration-none" href="{{ url(config('canvas.path')) }}">{{ __('canvas::blog.nav.user.login') }}</a>
+                <a class="text-muted text-decoration-none" href="{{ url(config('canvas.path')) }}">{{ __('Login') }}</a>
             </div>
         @endguest
     </div>

@@ -29,10 +29,10 @@
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                 <a href="{{ url(sprintf('%s/posts/%s/edit', config('canvas.path'), $data['post']->id)) }}"
-                   class="dropdown-item">{{ __('canvas::blog.buttons.edit') }}</a>
+                   class="dropdown-item">{{ __('Edit post') }}</a>
 
                 <a href="{{ url(sprintf('%s/stats/%s', config('canvas.path'), $data['post']->id)) }}"
-                   class="dropdown-item">{{ __('canvas::blog.buttons.stats') }}</a>
+                   class="dropdown-item">{{ __('View stats') }}</a>
             </div>
         </div>
     @endif
@@ -77,7 +77,7 @@
             <hr>
 
             <p class="text-center font-italic pt-3 my-5">
-                {{ __('canvas::blog.buttons.canonical') }} <a href="{{ url($data['meta']['canonical_link']) }}" target="_blank" class="text-dark" rel="noopener">{{ parse_url($data['meta']['canonical_link'])['host'] }}</a>
+                {{ __('This post was originally published on') }} <a href="{{ url($data['meta']['canonical_link']) }}" target="_blank" class="text-dark" rel="noopener">{{ parse_url($data['meta']['canonical_link'])['host'] }}</a>
             </p>
         </div>
     @endisset
@@ -89,7 +89,7 @@
                      @isset($data['next']->featured_image) style="background: linear-gradient(rgba(0, 0, 0, 0.8),rgba(0, 0, 0, 0.8)),url({{ $data['next']->featured_image }}); background-size: cover" @endisset>
                     <a href="{{ route('blog.post', $data['next']->slug) }}"
                        class="btn btn-sm text-decoration-none @isset($data['next']->featured_image) btn-outline-light @else btn-outline-secondary @endisset text-uppercase font-weight-bold mt-3">
-                        {{ __('canvas::blog.buttons.next') }}
+                        {{ __('Read this next') }}
                     </a>
                     <h2 class="font-weight-bold font-serif my-3">
                         <a href="{{ route('blog.post', $data['next']->slug) }}" class="text-decoration-none @isset($data['next']->featured_image) text-light @else text-dark @endisset">{{ $data['next']->title }}</a>
