@@ -3,12 +3,12 @@
 @section('title', $data['post']->title)
 
 @push('meta')
-    <meta name="description" content="{{ $data['meta']['meta_description'] }}">
-    <meta name="og:title" content="{{ $data['meta']['og_title'] }}">
-    <meta name="og:description" content="{{ $data['meta']['og_description'] }}">
+    <meta name="description" content="{{ $data['meta']['description'] }}">
+    <meta name="og:title" content="{{ $data['meta']['title'] }}">
+    <meta name="og:description" content="{{ $data['meta']['description'] }}">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="{{ $data['meta']['twitter_title'] }}">
-    <meta name="twitter:description" content="{{ $data['meta']['twitter_description'] }}">
+    <meta name="twitter:title" content="{{ $data['meta']['title'] }}">
+    <meta name="twitter:description" content="{{ $data['meta']['description'] }}">
 
     @isset($data['meta']['canonical_link'])
         <link rel="canonical" href="{{ $data['meta']['canonical_link'] }}"/>
